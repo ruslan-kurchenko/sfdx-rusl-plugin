@@ -1,16 +1,17 @@
 {
   "name": "sfdx-rusl-plugin",
-  "description": "The list of util commands by Ruslan Kurchenko",
+  "description": "The plugin to manage sfdx project sources",
   "version": "0.0.1",
   "author": "Ruslan Kurchenko @ruslan-kurchenko",
-  "bugs": "https://github.com/ruslan-kurchenko/sfdx-rusl-plugin/issues",
+  "bugs": {
+    "url": "https://github.com/ruslan-kurchenko/sfdx-rusl-plugin/issues"
+  },
   "dependencies": {
     "@oclif/command": "1",
     "@oclif/config": "1",
     "@oclif/errors": "1",
     "@salesforce/command": "^1.0.1",
     "@salesforce/core": "^1.0.1",
-    "fs-extra": "^7.0.1",
     "sfdc-generate-package": "^2.5.0",
     "tslib": "1"
   },
@@ -47,20 +48,29 @@
   "oclif": {
     "commands": "./lib/commands",
     "topics": {
-      "hello": {
-        "description": "Commands to say hello."
+      "rusl": {
+        "mdapi": "Commands to manage project sources and Org via Metadata API",
+        "mdapi:package": "Commands to manage packages via Metadata API"
       }
     },
     "devPlugins": [
       "@oclif/plugin-help"
     ]
   },
-  "repository": "ruslan-kurchenko/sfdx-rusl-plugin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruslan-kurchenko/sfdx-rusl-plugin.git"
+  },
   "scripts": {
     "postpack": "rm -f oclif.manifest.json npm-shrinkwrap.json",
     "posttest": "tslint -p test -t stylish",
     "prepare": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme && npm shrinkwrap",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md"
+  },
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
   }
 }
