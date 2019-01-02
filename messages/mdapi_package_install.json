@@ -1,0 +1,7 @@
+{
+    "commandDescription": "install a package with its dependencies using Metadata API",
+    "packageNameFlagDescription": "a name of the package to install",
+    "outputDirFlagDescription": "a directory name to store converted sources",
+    "saveSourcesFlagDescription": "a flag to save or release the package converted metadata",
+    "errorNameFlagRequired": "The package name flag (--packagename or -n) is required to install the package"
+}
